@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freelance_project_ui/const/colors.dart';
 import 'package:freelance_project_ui/screens/profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex = 0;
+  int selectedIndex = 4;
   @override
   Widget build(BuildContext context) {
     final screens = [
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type:BottomNavigationBarType.fixed ,
         backgroundColor: Colors.white,
 
         currentIndex: selectedIndex,
@@ -40,56 +42,45 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
 
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
+        selectedItemColor: mainColor,
+       unselectedItemColor: Colors.grey,
+        selectedFontSize: 8,
+        unselectedFontSize: 8,
+        showUnselectedLabels: true,
+        unselectedLabelStyle:const TextStyle(color: Colors.red) ,
         // showSelectedLabels: false,
         // showUnselectedLabels: false,
 
-        items: const [
+        items:    [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Image.asset("assets/home.png",height: 28,),
             //SvgPicture.asset("assets/svg/home.svg"),
             label: "home",
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.blue,
-            ),
+            activeIcon: Image.asset("assets/home.png",height: 28,)
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon:  Image.asset("assets/carbon_compass.png",height: 28,),
             //SvgPicture.asset("assets/svg/home.svg"),
             label: "opportunity",
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.blue,
-            ),
-          ),
+            activeIcon: Image.asset("assets/carbon_compass.png",height: 28,) ),
+          
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon:  Image.asset("assets/shop_bag.png",height: 28,),
             //SvgPicture.asset("assets/svg/home.svg"),
             label: "sell/buy",
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.blue,
-            ),
+            activeIcon:  Image.asset("assets/shop_bag.png",height: 28,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon:  Image.asset("assets/heart.png",height: 21,),
             //SvgPicture.asset("assets/svg/home.svg"),
             label: "wishlist",
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.blue,
-            ),
+            activeIcon: Image.asset("assets/heart.png",height: 30,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Image.asset("assets/account.png",height: 30,),
             //SvgPicture.asset("assets/svg/home.svg"),
             label: "profile",
-            activeIcon: Icon(
-              Icons.person,
-              color: Colors.blue,
-            ),
+            activeIcon:Image.asset("assets/account.png",height: 30,)
           ),
         ],
       ),

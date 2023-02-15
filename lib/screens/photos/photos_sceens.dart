@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:freelance_project_ui/const/colors.dart';
 import 'package:get/get.dart';
 
 import 'gridlist.dart';
@@ -17,6 +20,7 @@ class PhotosScreen extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(5.0),
               child: GridView.custom(
+                physics:const  NeverScrollableScrollPhysics(),
                 gridDelegate: SliverQuiltedGridDelegate(
               crossAxisCount: 3,
               mainAxisSpacing: 5,
@@ -37,6 +41,7 @@ class PhotosScreen extends StatelessWidget {
               ),
             );
           }),
+       
     );
   }
 }
