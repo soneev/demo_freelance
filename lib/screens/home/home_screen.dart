@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:freelance_project_ui/const/colors.dart';
 import 'package:freelance_project_ui/screens/profile/profile_screen.dart';
+import 'package:get/get.dart';
+
+import 'home_screen_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex = 4;
+  // int selectedIndex = 4;
   @override
   Widget build(BuildContext context) {
     final screens = [
@@ -29,18 +32,26 @@ class _HomeScreenState extends State<HomeScreen> {
       const ProfileScreen()
     ];
 
-    return Scaffold(
-      body: screens[selectedIndex],
+    return  GetBuilder<HomeScreenController>(
+      init:HomeScreenController() ,
+      builder: (controller) {
+        return
+    
+    
+     Scaffold(
+      body: screens[controller.selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type:BottomNavigationBarType.fixed ,
         backgroundColor: Colors.white,
 
-        currentIndex: selectedIndex,
-        onTap: (int index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
+        currentIndex: controller.selectedIndex,
+        onTap: controller.tabchangeIndex,
+        
+        // (int index) {
+        //   setState(() {
+        //     selectedIndex = index;
+        //   });
+        // },
 
         selectedItemColor: mainColor,
        unselectedItemColor: Colors.grey,
@@ -85,6 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-    );
+    );});
   }
 }
